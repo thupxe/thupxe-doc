@@ -1,0 +1,56 @@
+site_name: THUPXE 文档
+site_description: 'Documentation for THUPXE Infrastructure'
+site_author: 'THUPXE Developers'
+copyright: 'Copyright &copy; 2021-2024 Department of Computer Science and Technology, Tsinghua University. All Rights Reserved.'
+
+theme: 
+  name: 'material'
+  language: 'zh'
+  icon:
+    logo: material/lan
+    repo: fontawesome/brands/github
+  features:
+    # - navigation.tabs
+    # - navigation.instant
+
+repo_name: 'thupxe/thupxe-doc'
+repo_url: 'https://github.com/thupxe/thupxe-doc'
+
+extra:
+  pagetime: 'on'
+
+nav:
+  - 总述: index.md
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      fallback_to_build_date: true
+      locale: zh
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+      linenums: true
+  - footnotes
+  - def_list
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
