@@ -1,6 +1,7 @@
 site_name: THUPXE 文档
 site_description: 'Documentation for THUPXE Infrastructure'
 site_author: 'THUPXE Developers'
+site_url: 'https://thupxe.github.io/thupxe-doc'
 copyright: 'Copyright &copy; 2021-2024 Department of Computer Science and Technology, Tsinghua University. All Rights Reserved.'
 
 theme: 
