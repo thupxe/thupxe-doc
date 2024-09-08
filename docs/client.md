@@ -132,7 +132,7 @@ thupxe 系统引导后，默认会使用存储系统镜像的分区的 UUID 作�
 
 ### GitHub Actions
 
-TODO
+客户端的镜像在 [thupxe/desktop-builder](https://github.com/thupxe/desktop-builder/) 仓库的 CI 上自动构建并生成。生成后，可以从 Artifact 下载制作好的 image。
 
 ### 调试与 patch
 
@@ -146,8 +146,12 @@ TODO
 
 ### rsync 自动同步
 
-TODO
+客户端在启动时，会访问服务端上的 HTTP Server，获取配置文件。配置文件中可以设置 USE_MULTICAST 变量，如果设置 USE_MULTICAST=false，那么客户端会通过 rsync 自动从服务端同步系统镜像。
 
 ### udp-cast 多播分发
 
-TODO
+客户端在启动时，会访问服务端上的 HTTP Server，获取配置文件。配置文件中可以设置 USE_MULTICAST 变量，如果设置 USE_MULTICAST=true，那么客户端会启动 udp-receiver，等待多播分发。
+
+在服务端上运行 `udp-sender -f images.tar.zstd`，当看到足够数量的客户端出现时，按任意键开始使用 UDP 进行系统镜像分发。部分网络环境对组播的支持较差，可以添加 `--broadcast` 命令行参数。
+
+需要注意 images.tar.zstd 的内容与通过 HTTP/RSYNC 提供的系统镜像的一致性，如果版本不一致，会导致客户端重复重启并通过 UDP 获取系统镜像。
