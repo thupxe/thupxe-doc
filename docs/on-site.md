@@ -69,7 +69,7 @@
 
 ## 技术人员标准操作流程（SOP）
 
-下面所有的 `clush` 都是带有正确选项的 `clush` 命令的简写，如 `clush -b -lroot -gclient`。
+下面所有的 `clush` 都是带有正确选项的 `clush` 命令的简写，如 `clush -b -lroot -gclient`（`-b` 表示合并相同输出，`-lroot` 表示用 root 用户，`-gclient` 表示访问 client group 里面的主机）。
 
 ### 考试前
 
