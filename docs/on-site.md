@@ -75,7 +75,7 @@
 
 !!! note "T-60min：启动机器并确认是否进入系统"
 
-    1. 确认此时 thupxe 的自动清理模式处于开启状态（`thupxeclear=on`）。
+    1. 确认此时 thupxe 的自动清理模式处于开启状态（`thupxeclear=yes`）。
     1. 如果有条件，可使用 Wake on LAN 功能开机（`ether-wake` 或者 `wakeonlan`）。
     2. 在触发开机后，可通过定期检查 `clush hostname` 的输出判断已经正常启动的客户端数量。如有问题，及时通知现场监考人员处理。
     3. 检查系统时间同步是否工作：`clush timedatectl timesync-status`，并可在服务器上使用 `chronyc clients` 查看客户端状态。
@@ -83,7 +83,7 @@
 
 !!! note "T-5min：考试系统解锁"
 
-    0. 确认此时 thupxe 的自动清理模式处于关闭状态（`thupxeclear=off`）。
+    0. 确认此时 thupxe 的自动清理模式处于关闭状态（`thupxeclear=no`）。
     1. 运行 `clush "usermod -U user"` 解锁系统。如有必要，可运行多次。
     2. 可通过 `clush loginctl list-sessions` 查看当前登录会话，确认用户能够正常登录。
     3. 观察 NGINX 访问日志，确认用户可以访问代理的站点。
@@ -113,7 +113,7 @@
 
     1. 对所有考试时间已经结束的考生机器执行 `clush "systemctl isolate multi-user.target"` 关闭桌面环境（**注意不要误伤加时考生**），并执行 `usermod -L "user"` 锁定用户。
     2. 在所有考生离开后，根据需要清理和收集考生文件。根据合规要求的不同，可能包括 `$HOME`, `/var/log`, 或者整个持久化状态。并使用 `clush --lcopy` 来收集所有客户端上的相应文件。
-    3. 完成收集后，确认此时 thupxe 的自动清理模式处于开启状态（`thupxeclear=on`）。
+    3. 完成收集后，确认此时 thupxe 的自动清理模式处于开启状态（`thupxeclear=yes`）。
     4. 重启所有计算机，确认均能正常开机、均还原至初始状态，有必要可联系现场监考人员协助。
     5. 根据需要，选择锁定用户、关闭桌面环境，或者关闭计算机。
     6. 告知现场监考人员可以离开。
