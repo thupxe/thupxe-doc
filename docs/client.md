@@ -142,7 +142,7 @@ TODO
 
 ### 镜像 overlay
 
-TODO
+镜像由多个 squash 文件组成，这些文件通过 overlay 叠加的顺序记录在 series 文件中，一行一个文件名。在 version 文件中记录当前镜像的版本号，客户端启动时会通过 HTTP 获取最新镜像的版本号，如果版本号不一致，会通过 RSYNC/UDP 获取新的镜像。
 
 ### rsync 自动同步
 
@@ -154,4 +154,4 @@ TODO
 
 在服务端上运行 `udp-sender -f images.tar.zstd`，当看到足够数量的客户端出现时，按任意键开始使用 UDP 进行系统镜像分发。部分网络环境对组播的支持较差，可以添加 `--broadcast` 命令行参数。
 
-需要注意 images.tar.zstd 的内容与通过 HTTP/RSYNC 提供的系统镜像的一致性，如果版本不一致，会导致客户端重复重启并通过 UDP 获取系统镜像。
+需要注意 images.tar.zstd 的内容与通过 HTTP/RSYNC 提供的系统镜像的一致性，如果版本不一致，会导致客户端重复重启并通过 UDP 获取系统镜像。也可以先用 UDP 传大部分的系统镜像，再用 RSYNC 传输剩下的小文件。
