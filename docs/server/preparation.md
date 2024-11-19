@@ -34,6 +34,5 @@ make bin-x86_64-efi/ipxe.efi
     # set rsync server address
     RSYNC_ADDR=rsync://10.1.0.1/images/
     # disable usb
-    mkdir -p /run/systemd/system/
-    ln -s /dev/null /run/systemd/system/udisks2.service
+    ENABLE_USB=false
     ```
