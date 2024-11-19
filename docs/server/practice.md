@@ -32,3 +32,4 @@
         -drive if=pflash,format=raw,unit=0,file=/usr/share/OVMF/OVMF_CODE.fd,readonly=on \
         -drive file=client.qcow2,format=qcow2
     ```
+4. 如果配置正确，应当可以观察到客户端 VM 通过 PXE 启动并进入到 Linux 桌面
