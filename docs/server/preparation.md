@@ -5,6 +5,15 @@
 - `/srv/tftp/bin-x86_64-efi/ipxe.efi`：用于 uefi 的 ipxe
 - `/srv/tftp/bin-i386-pcbios/undionly.kpxe`：用于 bios 的 ipxe
 
+这两个文件可以从 ipxe 源码编译：
+
+```shell
+git clone https://github.com/ipxe/ipxe.git
+cd ipxe/src
+make bin-i386-pcbios/undionly.kpxe
+make bin-x86_64-efi/ipxe.efi
+```
+
 需要在 `/src/thupxe` 下准备好下列文件：
 
 - `/srv/thupxe/thupxe.ipxe`: ipxe 配置文件，用于引导内核启动，假设服务器的地址是 10.0.0.1，根据需要修改 `thupxeclear` 参数：
