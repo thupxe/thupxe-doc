@@ -142,7 +142,7 @@ TODO
 
 ### 镜像 overlay
 
-镜像由多个 squash 文件组成，这些文件通过 overlay 叠加的顺序记录在 series 文件中，一行一个文件名。在 version 文件中记录当前镜像的版本号，客户端启动时会通过 HTTP 获取最新镜像的版本号，如果版本号不一致，会通过 RSYNC/UDP 获取新的镜像。
+镜像由多个 squash 文件组成，这些文件通过 overlay 叠加的顺序记录在 series 文件中，一行一个文件名，出现在更前面的是 upper，出现在更后面的是 lower。在 version 文件中记录当前镜像的版本号，客户端启动时会通过 HTTP 获取最新镜像的版本号，如果版本号不一致，会通过 RSYNC/UDP 获取新的镜像。
 
 ### rsync 自动同步
 
