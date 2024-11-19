@@ -24,10 +24,10 @@ make bin-x86_64-efi/ipxe.efi
     boot
     ```
 - 从 [thupxe/desktop-builder](https://github.com/thupxe/desktop-builder/) 的 CI Artifact 获取文件到下列位置：
-    - `/srv/thupxe/{vmlinuz,initrd.img`: 下载 Kernel and Initramfs 并解压
+    - `/srv/thupxe/{vmlinuz,initrd.img}`: 下载 Kernel and Initramfs 并解压
     - `/srv/thupxe/images/{0000_clientsys.squash,series,version}`：下载 System Image 并解压
     - 根据需要，可以在 CI 生成的文件的基础上做修改
-- `/srv/thupxe/pxe.conf`：编写 THUPXE 配置文件，内容如下：
+- `/srv/thupxe/pxe.conf`：参考 [pxe.conf](https://github.com/thupxe/desktop-builder/blob/noble/pxe.conf) 编写 THUPXE 配置文件，内容如下：
     ```
     # use udp multicast or not
     USE_MULTICAST=true
