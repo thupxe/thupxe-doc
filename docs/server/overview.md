@@ -12,9 +12,3 @@
 6. NTP Server chronyd：负责客户端的时钟同步
 7. DNS Server dnsmasq：负责客户端的域名解析
 
-## 服务配置
-
-DHCP Server 配置时需要注意：
-
-1. 配置默认路由、DNS 服务器和 NTP 服务器为自己
-2. 通过 DHCP Option 指定 next server 为自己，通过 user-class/vendor-class-identifier option 判断客户端是固件的 PXE 还是 iPXE，分别下发 iPXE 的 TFTP 下载路径或 iPXE 的配置文件路径

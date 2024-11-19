@@ -24,7 +24,15 @@ nav:
   - 总述: index.md
   - 系统架构: architecture.md
   - 客户端: client.md
-  - 服务端: server.md
+  - 服务端: 
+    - 总览: server/overview.md
+    - 准备工作: server/preparation.md
+    - DHCP 服务器: server/dhcp.md
+    - TFTP 服务器: server/tftp.md
+    - HTTP 服务器: server/http.md
+    - RSYNC 服务器: server/rsync.md
+    - NTP 服务器: server/ntp.md
+    - DNS 服务器: server/dns.md
   - 现场活动: on-site.md
   - 附录:
     - 引导诊断: appendix/boot-diag.md
