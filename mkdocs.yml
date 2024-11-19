@@ -26,6 +26,7 @@ nav:
   - 客户端: client.md
   - 服务端: 
     - 总览: server/overview.md
+    - 练习: server/practice.md
     - 准备工作: server/preparation.md
     - DHCP 服务器: server/dhcp.md
     - TFTP 服务器: server/tftp.md

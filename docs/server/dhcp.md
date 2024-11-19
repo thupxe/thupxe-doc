@@ -6,7 +6,7 @@ DHCP 服务器使用的是 isc-dhcp-server，配置步骤：
 2. 修改 `/etc/default/isc-dhcp-server` 中的 INTERFACESv4，把要开启监听 DHCP Server 的接口写进去
 3. 修改 `/etc/dhcp/dhcpd.conf`，做如下配置：
     1. `authoritative;`：权威 DHCP 服务器
-    2. 下面是主要的配置部分，以 10.0.0.0/16 为例，假设服务器的地址是 10.0.0.1：
+    2. 下面是主要的配置部分，以 10.1.0.0/16 为例，假设服务器的地址是 10.1.0.1：
 
         ```
         option client-architecture code 93 = unsigned integer 16;
@@ -15,22 +15,22 @@ DHCP 服务器使用的是 isc-dhcp-server，配置步骤：
             match if substring (option vendor-class-identifier, 0, 9) = "PXEClient";
         }
 
-        subnet 10.0.0.0 netmask 255.255.0.0 {
-            interface xxx;
-            option routers 10.0.0.1;
-            option domain-name-servers 10.0.0.1;
-            option ntp-servers 10.0.0.1;
+        subnet 10.1.0.0 netmask 255.255.0.0 {
+            interface ens4;
+            option routers 10.1.0.1;
+            option domain-name-servers 10.1.0.1;
+            option ntp-servers 10.1.0.1;
 
             # ip address pool for pxe clients
             pool {
                 allow members of "pxe";
-                range 10.0.1.0 10.0.10.254;
-                next-server 10.0.0.1;
+                range 10.1.1.0 10.1.10.254;
+                next-server 10.1.0.1;
                 # dispatch pxe filename
                 if exists user-class and option user-class = "iPXE" {
                     # this is ipxe, use our ipxe config
                     option vendor-class-identifier "PXEClient";
-                    filename "http://10.0.0.1/thupxe.ipxe";
+                    filename "http://10.1.0.1/thupxe.ipxe";
                 } elsif option client-architecture = encode-int(7, 16) {
                     # this is uefi, boot to ipxe
                     filename "bin-x86_64-efi/ipxe.efi";
@@ -43,7 +43,7 @@ DHCP 服务器使用的是 isc-dhcp-server，配置步骤：
             # ip address pool for non-pxe clients
             pool {
                 deny members of "pxe";
-                range 10.0.11.0 10.0.20.254;
+                range 10.1.11.0 10.1.20.254;
             }
 
             # assign static ip address for known clients
@@ -53,7 +53,7 @@ DHCP 服务器使用的是 isc-dhcp-server，配置步骤：
                 host named-client-1 {
                     # match against dhcp client identifier
                     option dhcp-client-identifier 00:11:22;
-                    fixed-address 10.0.21.1;
+                    fixed-address 10.1.21.1;
                 }
             }
         }
