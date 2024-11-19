@@ -136,7 +136,7 @@ thupxe 系统引导后，默认会使用存储系统镜像的分区的 UUID 作�
 
 ### 调试与 patch
 
-TODO
+可以参考[文档](./server/practice.md)来在本地用两个虚拟机搭建 THUPXE 的环境，在其上调试系统镜像的功能。如果需要修改系统镜像的内容，可以使用 unsquashfs + mksquashfs 的方式修改系统镜像，也可以使用 overlay 的方式，添加新的 squash 文件，并把新的 squash 文件名添加到 series 开头。
 
 ## 系统镜像部署
 
