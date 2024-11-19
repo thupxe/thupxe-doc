@@ -10,5 +10,5 @@
 4. RSYNC Server rsync：用于提供 rootfs
 5. UDP Multicast udpcast：用于通过组播方式下发 rootfs
 6. NTP Server chronyd：负责客户端的时钟同步
-7. DNS Server dnsmasq：负责客户端的域名解析
+7. DNS Server coredns：负责客户端的域名解析
 
