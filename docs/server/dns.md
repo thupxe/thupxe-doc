@@ -24,3 +24,4 @@ DNS 服务器使用的是 coredns，配置步骤：
     @       IN      A       10.1.0.1
     ```
 3. 启动 DNS Server 并设置为开机启动：`sudo systemctl enable --now coredns`
+4. 配置好域名后，可以配合 HTTP Server 向用户提供网站的内容
