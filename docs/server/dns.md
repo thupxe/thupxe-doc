@@ -2,7 +2,7 @@
 
 DNS 服务器使用的是 coredns，配置步骤：
 
-1. 使用 APT 安装：`sudo apt install coredns`
+1. 参考 [coredns/debian](https://github.com/coredns/debian) 在 Debian 上构建并安装 coredns
 2. 编辑 `/etc/coredns/Corefile`，假设服务器的地址是 10.1.0.1，想要把域名 example.xyz 指向服务器，添加下列配置：
     ```
     . {
