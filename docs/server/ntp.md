@@ -7,4 +7,4 @@ NTP 服务器使用的是 chronyd，配置步骤：
     ```
     allow 10.1.0.0/16
     ```
-3. 启动 NTP Server 并设置为开机启动：`sudo systemctl enable --now chronyd`
+3. 启动 NTP Server 并设置为开机启动：`sudo systemctl enable --now chrony`
